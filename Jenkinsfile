@@ -1,22 +1,23 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage("build"){
-            steps{
-                bat 'mvn package'
-                echo "Build success"
-            }
-        }
-        stage("Execute"){
-            steps{
-                bat 'java -jar target/java-project2-1.1.jar'
-            }
-        }
-        stage("Final"){
-            steps{
-                echo "Success"
-            }
-        }
+
+    tools {
+        maven 'Maven-3.9'
     }
-}    
-    
+
+    stages {
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Run') {
+            steps {
+                sh 'java -jar target/java-project2-1.1.jar'
+            }
+        }
+
+    }
+}
