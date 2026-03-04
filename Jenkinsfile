@@ -1,21 +1,24 @@
 pipeline {
     agent any
 
-    tools {
-        maven 'Maven-3.9'
-    }
-
     stages {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn package'
+                echo 'Build success'
             }
         }
 
-        stage('Run') {
+        stage('Execute') {
             steps {
-                sh 'java -jar target/java-project2-1.1.jar'
+                bat 'java -jar target/java-project2-1.1.jar'
+            }
+        }
+
+        stage('Final') {
+            steps {
+                echo 'Success'
             }
         }
 
