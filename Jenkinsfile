@@ -3,13 +3,13 @@ pipeline{
     stages{
         stage("build"){
             steps{
-                bat 'mvn clean package'
+                bat 'mvn package'
                 echo "Build success"
             }
         }
         stage("Execute"){
             steps{
-                bat 'java -jar target/java-project2-1.1.jar 10 20'
+                bat 'java -jar target/java-project2-1.1.jar '
             }
         }
         stage("Final"){
