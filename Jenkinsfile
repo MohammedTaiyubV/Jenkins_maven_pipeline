@@ -9,7 +9,7 @@ pipeline{
         }
         stage("Execute"){
             steps{
-                bat 'java -jar target/java-project2-1.1.jar '
+                bat 'java -jar target/java-project2-1.1.jar'
             }
         }
         stage("Final"){
